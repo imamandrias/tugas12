@@ -103,8 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               height: 6,
                               width: 40,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: i == katagoriPilihan ? Color(0xFFFE6D8E) : Colors.transparent
+                                borderRadius: BorderRadius.circular(15.0),
+                                color: i == katagoriPilihan ? Colors.cyan : Colors.transparent
                               ),
                             ),
                           ],
@@ -112,6 +112,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     );
                   }),
+            ),
+            //List Film Seluruhnya
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              
             ),
           ],
         ),
