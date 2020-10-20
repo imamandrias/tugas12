@@ -10,7 +10,7 @@
 	}	
 	//Select database
 	//$db = mysql_select_db(DB_DATABASE);
-	if(!$db) {
+	//if(!$db) {
 		//die("Tidak Bisa Memilih Database");
-	}
+	//}
 ?>

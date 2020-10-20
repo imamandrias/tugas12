@@ -9,6 +9,6 @@ while($row = mysqli_fetch_assoc($query)) {
 	$data[] = $row;
 }
 			
-$json = json_encode($data);
+$json = json_encode($data, JSON_NUMERIC_CHECK);
 echo $json;
 ?>
