@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Watch Anime Apps', style: TextStyle(color: Colors.black87),),
+        title: Text('Nonton Anime Apps', style: TextStyle(color: Colors.black87),),
         centerTitle: true,
         backgroundColor: Colors.tealAccent,
       ),

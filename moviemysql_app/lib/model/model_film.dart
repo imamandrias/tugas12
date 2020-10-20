@@ -18,6 +18,7 @@ class ModelFilm {
   String durasi;
   String negara;
   String namaKatagori;
+  int tahun;
 
   ModelFilm(
       {this.idMovie,
@@ -30,7 +31,8 @@ class ModelFilm {
       this.rating,
       this.durasi,
       this.negara,
-      this.namaKatagori});
+      this.namaKatagori,
+      this.tahun});
 
   factory ModelFilm.fromJson(Map<String, dynamic> json) => ModelFilm(
         idMovie: json['id_movie'],
@@ -44,6 +46,7 @@ class ModelFilm {
         durasi: json['durasi'],
         negara: json['negara'],
         namaKatagori: json['nama_katagori'],
+        tahun: json['tahun'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -58,5 +61,6 @@ class ModelFilm {
         'durasi': durasi,
         'negara': negara,
         'nama_katagori': namaKatagori,
+        'tahun': tahun,
       };
 }

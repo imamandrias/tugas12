@@ -7,6 +7,7 @@ import 'package:moviemysql_app/model/model_film.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:moviemysql_app/model/model_film.dart';
+import 'package:moviemysql_app/screen/DetailFilm.dart';
 class PageAllFilm extends StatefulWidget {
   @override
   _PageAllFilmState createState() => _PageAllFilmState();
@@ -16,7 +17,8 @@ class _PageAllFilmState extends State<PageAllFilm> {
   //List Semua Film
   List<ModelFilm> listModel = [];
   Future<Null> getFilm() async{
-    final response = await http.get('http://192.168.1.101/movie_server/film.php');
+    //sesuaikan IP dengan IP Web Server
+    final response = await http.get('http://192.168.1.100/movie_server/film.php');
     if(response.statusCode==200){
       final film = jsonDecode(response.body);
       //print(film);
@@ -48,13 +50,16 @@ class _PageAllFilmState extends State<PageAllFilm> {
                 return Container(
                   child: InkWell(
                     onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return DetailFilm(listModel, index);
+                      }));
                     },
                     child: Card(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Container(
-                            height: 250,
+                            height: 200,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                               boxShadow: [BoxShadow(
@@ -74,7 +79,8 @@ class _PageAllFilmState extends State<PageAllFilm> {
                               nDataFilm.namaMovie,
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold
+                                  fontWeight: FontWeight.bold,
+                                fontSize: 17.0
                               ),
                             ),
                           ),
@@ -119,3 +125,4 @@ class _PageAllFilmState extends State<PageAllFilm> {
     );
   }
 }
+

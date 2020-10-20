@@ -15,8 +15,9 @@ class _KatagoriListState extends State<KatagoriList> {
   int katagoriPilihan = 0;
 
   Future<Null> getKatagori() async {
+    //sesuaikan IP dengan IP Web Server
     final response =
-    await http.get('http://192.168.1.101/movie_server/katagori.php');
+    await http.get('http://192.168.1.100/movie_server/katagori.php');
     if (response.statusCode == 200) {
       final katagori = jsonDecode(response.body);
       //print(katagori);
