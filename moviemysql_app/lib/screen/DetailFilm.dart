@@ -4,10 +4,10 @@ import 'package:moviemysql_app/model/model_film.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class DetailFilm extends StatelessWidget {
-  List<ModelFilm> listModel = [];
+  List<ModelFilm> listFilm = [];
   int index;
 
-  DetailFilm(this.listModel, this.index);
+  DetailFilm(this.listFilm, this.index);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class DetailFilm extends StatelessWidget {
               ],
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: NetworkImage(listModel[index].gambarUrl),
+                image: NetworkImage(listFilm[index].gambarUrl),
               ),
             ),
           ),
@@ -46,7 +46,7 @@ class DetailFilm extends StatelessWidget {
             height: 20.0,
           ),
           Text(
-            listModel[index].namaMovie,
+            listFilm[index].namaMovie,
             style: TextStyle(
                 fontSize: 20, fontWeight: FontWeight.bold, letterSpacing: 2.5),
             textAlign: TextAlign.center,
@@ -73,7 +73,7 @@ class DetailFilm extends StatelessWidget {
                           height: 10,
                         ),
                         Text(
-                          listModel[index].durasi,
+                          listFilm[index].durasi,
                           style: TextStyle(
                               fontSize: 12, fontWeight: FontWeight.bold),
                         ),
@@ -97,7 +97,7 @@ class DetailFilm extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        listModel[index].tahun.toString(),
+                        listFilm[index].tahun.toString(),
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       ),
@@ -120,7 +120,7 @@ class DetailFilm extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        listModel[index].rating.toString() + '/10',
+                        listFilm[index].rating.toString() + '/10',
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       ),
@@ -143,7 +143,7 @@ class DetailFilm extends StatelessWidget {
                         height: 10,
                       ),
                       Text(
-                        listModel[index].negara,
+                        listFilm[index].negara,
                         style: TextStyle(
                             fontSize: 12, fontWeight: FontWeight.bold),
                       ),
@@ -164,7 +164,7 @@ class DetailFilm extends StatelessWidget {
             height: 20,
           ),
           Text(
-            listModel[index].deskripsi,
+            listFilm[index].deskripsi,
             style: TextStyle(
                 fontSize: 18, height: 1.5),
             textAlign: TextAlign.justify,
@@ -175,7 +175,7 @@ class DetailFilm extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           Navigator.push(context, MaterialPageRoute(
-              builder: (context) => VideoPlayer(listModel[index].movieUrl)
+              builder: (context) => VideoPlayer(listFilm[index].movieUrl)
           ));
         },
         child: Icon(

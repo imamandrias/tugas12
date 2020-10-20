@@ -11,7 +11,7 @@ class KatagoriList extends StatefulWidget {
 
 class _KatagoriListState extends State<KatagoriList> {
   //List katagoris;
-  List<ModelKatagori> listModel = [];
+  List<ModelKatagori> listKatagori = [];
   int katagoriPilihan = 0;
 
   Future<Null> getKatagori() async {
@@ -24,7 +24,7 @@ class _KatagoriListState extends State<KatagoriList> {
       setState(() {
         for (Map i in katagori) {
           //menambahkan data json ke list
-          listModel.add(ModelKatagori.fromJson(i));
+          listKatagori.add(ModelKatagori.fromJson(i));
         }
       });
     }
@@ -43,9 +43,9 @@ class _KatagoriListState extends State<KatagoriList> {
       height: 60,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
-          itemCount: listModel.length,
+          itemCount: listKatagori.length,
           itemBuilder: (context, i) {
-            final nDataKatagori = listModel[i];
+            final nDataKatagori = listKatagori[i];
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: GestureDetector(

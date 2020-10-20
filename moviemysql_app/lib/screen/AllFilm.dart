@@ -15,7 +15,7 @@ class PageAllFilm extends StatefulWidget {
 
 class _PageAllFilmState extends State<PageAllFilm> {
   //List Semua Film
-  List<ModelFilm> listModel = [];
+  List<ModelFilm> listFilm = [];
   Future<Null> getFilm() async{
     //sesuaikan IP dengan IP Web Server
     final response = await http.get('http://192.168.1.100/movie_server/film.php');
@@ -25,7 +25,7 @@ class _PageAllFilmState extends State<PageAllFilm> {
       setState(() {
         for(Map i in film){
           //menambahkan data json ke list
-          listModel.add(ModelFilm.fromJson(i));
+          listFilm.add(ModelFilm.fromJson(i));
         }
       });
     }
@@ -44,14 +44,14 @@ class _PageAllFilmState extends State<PageAllFilm> {
           child: ListView.builder(
               physics: NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-            itemCount: listModel.length,
+            itemCount: listFilm.length,
               itemBuilder:(context, index){
-                final nDataFilm = listModel[index];
+                final nDataFilm = listFilm[index];
                 return Container(
                   child: InkWell(
                     onTap: (){
                       Navigator.push(context, MaterialPageRoute(builder: (context){
-                        return DetailFilm(listModel, index);
+                        return DetailFilm(listFilm, index);
                       }));
                     },
                     child: Card(
