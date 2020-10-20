@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviemysql_app/model/model_film.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class DetailFilm extends StatelessWidget {
   List<ModelFilm> listModel = [];
@@ -169,6 +170,32 @@ class DetailFilm extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
         ],
+      ),
+      //Tombol Play Video
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => VideoPlayer(listModel[index].movieUrl)
+          ));
+        },
+        child: Icon(
+          Icons.play_arrow_sharp,
+        ),
+        backgroundColor: Colors.teal ,
+      ),
+    );
+  }
+}
+
+//class video playernya
+class VideoPlayer extends StatelessWidget {
+  final String url;
+  VideoPlayer(this.url);
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: WebviewScaffold(
+        url: url,
       ),
     );
   }
