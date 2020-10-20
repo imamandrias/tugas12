@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'package:moviemysql_app/model/model_katagori.dart';
+import 'package:moviemysql_app/screen/DetailKatagori.dart';
 class KatagoriList extends StatefulWidget {
   @override
   _KatagoriListState createState() => _KatagoriListState();
@@ -53,6 +54,9 @@ class _KatagoriListState extends State<KatagoriList> {
                   setState(() {
                     katagoriPilihan = i;
                   });
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return DetailKatagori(nDataKatagori.idKatagori, nDataKatagori.namaKatagori);
+                  }));
                 },
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

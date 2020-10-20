@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moviemysql_app/screen/Body.dart';
+import 'package:moviemysql_app/screen/Drawer.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,6 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text('Nonton Anime Apps', style: TextStyle(color: Colors.black87),),
         centerTitle: true,
