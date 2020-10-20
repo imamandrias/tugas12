@@ -5,6 +5,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:moviemysql_app/screen/DetailFilm.dart';
+import 'package:moviemysql_app/screen/Drawer.dart';
 
 class DetailKatagori extends StatefulWidget {
   final int idKatagori;
@@ -48,6 +49,7 @@ class _DetailKatagoriState extends State<DetailKatagori> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: MyDrawer(),
       appBar: AppBar(
         title: Text(
           'Nonton Anime Apps',
